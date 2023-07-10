@@ -1,5 +1,4 @@
 import 'package:app_livraria_flutter/components/botao.dart';
-import 'package:app_livraria_flutter/pages/homepage.dart';
 import 'package:app_livraria_flutter/themes/themes_colors.dart';
 import 'package:app_livraria_flutter/utils/validator.dart';
 import 'package:flutter/material.dart';

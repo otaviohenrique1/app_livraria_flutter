@@ -10,5 +10,8 @@ ThemeData myTheme = ThemeData(
       color: ThemesColors.white,
       fontSize: 22,
     ),
+    iconTheme: IconThemeData(
+      color: ThemesColors.white,
+    ),
   ),
 );

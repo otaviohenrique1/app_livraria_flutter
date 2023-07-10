@@ -1,3 +1,5 @@
+import 'package:app_livraria_flutter/pages/novo_livro.dart';
+import 'package:app_livraria_flutter/themes/themes_colors.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,7 +14,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Home"),
+        title: const Text("Lista de livros"),
       ),
       body: CustomScrollView(
         slivers: [
@@ -39,12 +41,17 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        backgroundColor: Colors.blue,
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const NovoLivro()),
+          );
+        },
+        backgroundColor: ThemesColors.blue,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(100),
         ),
-        child: const Icon(Icons.add, color: Colors.white, size: 32),
+        child: const Icon(Icons.add, color: ThemesColors.white, size: 32),
       ),
     );
   }

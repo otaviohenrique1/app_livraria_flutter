@@ -18,17 +18,11 @@ class CampoTexto extends StatelessWidget {
   Widget build(BuildContext context) {
     const outlineInputBorder = OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(8)),
-      borderSide: BorderSide(
-        color: Colors.black,
-        width: 2,
-        style: BorderStyle.solid,
-      ),
+      borderSide:
+          BorderSide(color: Colors.black, width: 2, style: BorderStyle.solid),
     );
 
-    const textStyle = TextStyle(
-      fontSize: 16,
-      fontWeight: FontWeight.w400,
-    );
+    const textStyle = TextStyle(fontSize: 16, fontWeight: FontWeight.w400);
 
     return TextFormField(
       controller: controller,

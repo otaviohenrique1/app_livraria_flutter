@@ -6,4 +6,5 @@ class ThemesColors {
   static const blue = Colors.blue;
   static const blueAccent = Colors.blueAccent;
   static const grey = Colors.grey;
+  static const red = Colors.red;
 }

@@ -1,4 +1,9 @@
+import 'dart:io';
+
 import 'package:app_livraria_flutter/components/botao.dart';
+import 'package:app_livraria_flutter/components/erro_dialog.dart';
+import 'package:app_livraria_flutter/models/livro.dart';
+import 'package:app_livraria_flutter/services/livro_service.dart';
 import 'package:app_livraria_flutter/themes/themes_colors.dart';
 import 'package:app_livraria_flutter/utils/validator.dart';
 import 'package:flutter/material.dart';
@@ -106,7 +111,36 @@ class _NovoLivroState extends State<NovoLivro> {
 
   void onSubmit() {
     if (formKey.currentState!.validate()) {
-      Navigator.pop(context);
+      LivroService service = LivroService();
+
+      String titulo = _tituloController.text;
+      String autor = _autorController.text;
+      String editora = _editoraController.text;
+      double preco = double.parse(_precoController.text);
+      int numeroPaginas = int.parse(_numeroPaginasController.text);
+
+      Livro livro = Livro(
+          id: "",
+          titulo: titulo,
+          autor: autor,
+          editora: editora,
+          preco: preco,
+          numeroPaginas: numeroPaginas);
+
+      service.register(livro).then((value) {
+        if (value) {
+          Navigator.pop(context);
+        }
+      }).catchError(
+        (error) {
+          var innerError = error as HttpException;
+          erroDialog(
+            context: context,
+            mensagem: innerError.message,
+          );
+        },
+        test: (error) => error is HttpException,
+      );
     }
   }
 }
